@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فِطْرَة | رحلة الـ 180 يوماً للتعافي وبناء النفس</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cairo & Amiri -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        amiri: ['Amiri', 'serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            850: '#064e3b',
+                            950: '#022c22',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f8fafc;
+            background-image: radial-gradient(#059669 0.55px, transparent 0.55px), radial-gradient(#059669 0.55px, #f8fafc 0.55px);
+            background-size: 28px 28px;
+            background-position: 0 0, 14px 14px;
+            background-attachment: fixed;
+        }
+        .islamic-pattern {
+            background-color: #064e3b;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310b981' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        .emerald-gradient {
+            background: linear-gradient(135deg, #065f46 0%, #047857 50%, #064e3b 100%);
+        }
+        .pulse-sos {
+            animation: pulse-red 2s infinite;
+        }
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+            70% { box-shadow: 0 0 0 14px rgba(220, 38, 38, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        }
+        .breathing-circle {
+            transition: all 4s ease-in-out;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #059669;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col justify-between selection:bg-emerald-600 selection:text-white">
+
+    <!-- LOADING OVERLAY -->
+    <div id="loading-screen" class="fixed inset-0 z-50 islamic-pattern flex flex-col items-center justify-center text-white transition-opacity duration-500">
+        <div class="w-20 h-20 border-4 border-amber-400 border-t-transparent rounded-full animate-spin mb-6"></div>
+        <h1 class="text-3xl font-bold font-amiri text-amber-400 mb-2">فِطْرَة | Fitrah</h1>
+        <p class="text-emerald-100 text-sm animate-pulse">بنجهز مساحتك الآمنة وبنسترجع بيانات رحلتك يا بطل...</p>
+    </div>
+
+    <!-- TOP NAVIGATION BAR -->
+    <header id="main-header" class="hidden sticky top-0 z-30 islamic-pattern text-white shadow-xl border-b border-emerald-700/60">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+            <!-- Brand -->
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-2xl gold-gradient flex items-center justify-center shadow-lg text-white font-bold text-xl">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="font-bold text-xl tracking-wide text-white">فِطْرَة</h1>
+                        <span id="cloud-status" class="text-[11px] bg-emerald-800/90 text-emerald-200 px-2.5 py-0.5 rounded-full border border-emerald-600 flex items-center gap-1">
+                            <i class="fa-solid fa-cloud-check text-emerald-400"></i> محفوظ تلقائياً
+                        </span>
+                    </div>
+                    <p class="text-xs text-emerald-200">رحلة الـ 180 يوم لبناء إنسان جديد</p>
+                </div>
+            </div>
+
+            <!-- User Stats Bar -->
+            <div class="flex items-center gap-2 sm:gap-4 flex-wrap">
+                <!-- Current Level Badge -->
+                <div class="bg-emerald-900/90 border border-emerald-700 px-3 py-1.5 rounded-xl flex items-center gap-2">
+                    <i id="header-rank-icon" class="fa-solid fa-shield-halved text-amber-400 text-lg"></i>
+                    <div>
+                        <p class="text-[10px] text-emerald-300 leading-none">المستوى الحالي</p>
+                        <p id="header-rank-title" class="text-xs font-bold text-amber-300">مجاهد البداية</p>
+                    </div>
+                </div>
+
+                <!-- Points -->
+                <div class="bg-emerald-900/90 border border-emerald-700 px-3 py-1.5 rounded-xl flex items-center gap-2">
+                    <i class="fa-solid fa-star text-amber-400 text-lg"></i>
+                    <div>
+                        <p class="text-[10px] text-emerald-300 leading-none">نقاط الهمة</p>
+                        <p id="header-points" class="text-xs font-bold text-white">0 نقطة</p>
+                    </div>
+                </div>
+
+                <!-- Emergency SOS Button -->
+                <button onclick="openSOSModal()" class="pulse-sos bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-xl text-xs sm:text-sm flex items-center gap-2 transition transform active:scale-95 shadow-lg">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>نجدة! عندي شهوة حالاً</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Sub-Navigation Tabs -->
+        <div class="bg-emerald-950/80 border-t border-emerald-800/60">
+            <div class="max-w-6xl mx-auto px-4 flex overflow-x-auto no-scrollbar gap-1 sm:gap-3 py-1.5 text-xs sm:text-sm">
+                <button onclick="switchTab('today')" id="tab-btn-today" class="tab-btn active-tab px-4 py-2 rounded-xl font-bold flex items-center gap-2 whitespace-nowrap transition bg-amber-500 text-emerald-950 shadow">
+                    <i class="fa-solid fa-calendar-day"></i> مهمتك النهاردة (اليوم الحالي فقط)
+                </button>
+                <button onclick="switchTab('triggers')" id="tab-btn-triggers" class="tab-btn px-4 py-2 rounded-xl font-semibold flex items-center gap-2 whitespace-nowrap text-emerald-100 hover:bg-emerald-800/50 transition">
+                    <i class="fa-solid fa-brain"></i> عيادة الجذور والمحفزات
+                </button>
+                <button onclick="switchTab('stats')" id="tab-btn-stats" class="tab-btn px-4 py-2 rounded-xl font-semibold flex items-center gap-2 whitespace-nowrap text-emerald-100 hover:bg-emerald-800/50 transition">
+                    <i class="fa-solid fa-chart-line"></i> تشافي الدماغ ومستوايا
+                </button>
+                <button onclick="switchTab('library')" id="tab-btn-library" class="tab-btn px-4 py-2 rounded-xl font-semibold flex items-center gap-2 whitespace-nowrap text-emerald-100 hover:bg-emerald-800/50 transition">
+                    <i class="fa-solid fa-book-quran"></i> زاد الطريق والوعي
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-6">
+
+        <!-- ==========================================
+             VIEW 1: DIAGNOSTIC ONBOARDING ASSESSMENT
+             ========================================== -->
+        <section id="onboarding-view" class="hidden max-w-3xl mx-auto my-4">
+            <div class="glass-card rounded-3xl shadow-2xl overflow-hidden border-2 border-emerald-700/20">
+                <!-- Banner -->
+                <div class="islamic-pattern p-8 text-white text-center relative">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl gold-gradient text-white text-3xl mb-4 shadow-lg">
+                        <i class="fa-solid fa-compass"></i>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold mb-2">أهلاً بيك يا بطل في بداية حياتك الجديدة</h2>
+                    <p class="text-emerald-100 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+                        وجودك هنا النهاردة معناه إن جواك فطرة سليمة رافضة القيد ونفسها ترجع لربنا حرة وعزيزة. إحنا هنا مش هنقولك "ماتتفرجش" ونسيبك، إحنا هنعالج <span class="text-amber-300 font-bold">الجذور النفسية والعصبية والروحية</span> خطوة بخطوة لمدة 180 يوم.
+                    </p>
+                </div>
+
+                <!-- Form Content -->
+                <div class="p-6 sm:p-8 space-y-6">
+                    <div class="bg-amber-50 border-r-4 border-amber-500 p-4 rounded-xl text-sm text-amber-900">
+                        <p class="font-bold mb-1"><i class="fa-solid fa-lock ml-1"></i> سرية تامة وحفظ تلقائي:</p>
+                        <p>جاوب بصراحة تامة مع نفسك عشان نحدد درجة التعلق ونفصل لك خطة الـ 180 يوم المناسبة لحالتك. بياناتك بتتحفظ تلقائياً عشان لما تقفل وتفتح في أي وقت تكمل من مكان ما وقفت.</p>
+                    </div>
+
+                    <!-- Name / Nickname -->
+                    <div>
+                        <label class="block text-sm font-bold text-slate-700 mb-2">تحب نناديك بإيه في رحلتك؟ (اسمك أو لقب بتحبه)</label>
+                        <input type="text" id="ob-name" placeholder="مثلاً: عبدالرحمن، بطل العفة، الباحث عن النور..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-200 outline-none transition font-semibold">
+                    </div>
+
+                    <!-- Quiz Questions -->
+                    <div class="space-y-5">
+                        <h3 class="font-extrabold text-lg text-emerald-900 border-b pb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-stethoscope text-emerald-600"></i> الاختبار التشخيصي النفسي والسلوكي:
+                        </h3>
+
+                        <!-- Q1 -->
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                            <p class="font-bold text-slate-800 mb-3 text-sm sm:text-base">1. في المتوسط، معدل الوقوع في المشاهدة أو العادة كان قد إيه في الفترة الأخيرة؟</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                                <label class="cursor-pointer border rounded-xl p-3 flex items-center gap-2 hover:bg-emerald-50 transition bg-white">
+                                    <input type="radio" name="q1" value="1" class="accent-emerald-600" checked>
+                                    <span class="text-sm">مرات قليلة في الشهر</span>
+                                </label>
+                                <label class="cursor-pointer border rounded-xl p-3 flex items-center gap-2 hover:bg-emerald-50 transition bg-white">
+                                    <input type="radio" name="q1" value="2" class="accent-emerald-600">
+                                    <span class="text-sm">مرتين لـ 4 مرات أسبوعياً</span>
+                                </label>
+                                <label class="cursor-pointer border rounded-xl p-3 flex items-center gap-2 hover:bg-emerald-50 transition bg-white">
+                                    <input type="radio" name="q1" value="3" class="accent-emerald-600">
+                                    <span class="text-sm">يومياً أو أكتر من مرة في اليوم</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Q2 -->
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                            <p class="font-bold text-slate-800 mb-3 text-sm sm:text-base">2. إيه أكتر شعور بيدفعك للهروب للإباحية؟ (السبب الجذري الحقيقي)</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                <label class="cursor-pointer border rounded-xl p-3 flex items-center gap-2 hover:bg-emerald-50 transition bg-white">
+                                    <input type="radio" name="q2_root" value="الضغط النفسي والتوتر والهروب من المسؤوليات" data-score="2" class="accent-emerald-600" checked>
+                                    <span class="text-sm">الضغط النفسي، التوتر، أو الهروب من المذاكرة والشغل</span>
+                                </label>
+                                <label class="cursor-pointer border rounded-xl p-3 flex items-center gap-2 hover:bg-emerald-50 transition bg-white">
+                                    <input type="radio" name="q2_root" value="الوحدة والفراغ العاطفي والملل القاتل" data-score="2" class="accent-emerald-600">
+                                    <span class="text-sm">الوحدة، الفراغ العاطفي، أو السهر لوحدي بالليل</span>
+                                </label>
+                                <label class="cursor-pointer border rounded-xl p-3 flex items-center gap-2 hover:bg-emerald-50 transition bg-white">
+                                    <input type="radio" name="q2_root" value="التعرض لمحفزات السوشيال ميديا وإطلاق البصر" data-score="1" class="accent-emerald-600">
+                                    <span class="text-sm">تصفح السوشيال ميديا والريلز وإطلاق البصر</span>
+                                </label>
+                                <label class="cursor-pointer border rounded-xl p-3 flex items-center gap-2 hover:bg-emerald-50 transition bg-white">
+                                    <input type="radio" name="q2_root" value="تعود عصبي قهري عند الشعور بالإحباط أو الحزن" data-score="3" class="accent-emerald-600">
+                                    <span class="text-sm">إحباط، قلة ثقة في النفس، وتعود قهري بدون رغبة</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Q3 -->
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                            <p class="font-bold text-slate-800 mb-3 text-sm sm:text-base">3. هل لاحظت إنك بقيت بتحتاج وقت أطول أو محتوى أصعب عشان تحس بنفس الدوبامين؟</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                                <label class="cursor-pointer border rounded-xl p-3 flex items-center gap-2 hover:bg-emerald-50 transition bg-white">
+                                    <input type="radio" name="q3" value="1" class="accent-emerald-600" checked>
+                                    <span class="text-sm">لأ، نادراً</span>
+                                </label>
+                                <label class="cursor-pointer border rounded-xl p-3 flex items-center gap-2 hover:bg-emerald-50 transition bg-white">
+                                    <input type="radio" name="q3" value="2" class="accent-emerald-600">
+                                    <span class="text-sm">أحياناً بيحصل</span>
+                                </label>
+                                <label class="cursor-pointer border rounded-xl p-3 flex items-center gap-2 hover:bg-emerald-50 transition bg-white">
+                                    <input type="radio" name="q3" value="3" class="accent-emerald-600">
+                                    <span class="text-sm">أيوة جداً وبضيع ساعات</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Q4 -->
+                        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                            <p class="font-bold text-slate-800 mb-3 text-sm sm:text-base">4. مدى تأثير الموضوع ده على صلاتك، تركيزك، ونظرتك لنفسك؟</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                                <label class="cursor-pointer border rounded-xl p-3 flex items-center gap-2 hover:bg-emerald-50 transition bg-white">
+                                    <input type="radio" name="q4" value="1" class="accent-emerald-600">
+                                    <span class="text-sm">تأثير بسيط وبندم بسرعة</span>
+                                </label>
+                                <label class="cursor-pointer border rounded-xl p-3 flex items-center gap-2 hover:bg-emerald-50 transition bg-white">
+                                    <input type="radio" name="q4" value="2" class="accent-emerald-600" checked>
+                                    <span class="text-sm">بيأخرني عن الصلاة وبيشتت تركيزي</span>
+                                </label>
+                                <label class="cursor-pointer border rounded-xl p-3 flex items-center gap-2 hover:bg-emerald-50 transition bg-white">
+                                    <input type="radio" name="q4" value="3" class="accent-emerald-600">
+                                    <span class="text-sm">مدمر طاقتي وبحس بضباب ذهني وذنب رهيب</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Goal Input -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">اكتب جملة لنفسك: ليه عاوز تتعافى وتكون إنسان جديد؟ (هنفكرك بيها وقت الضعف)</label>
+                            <textarea id="ob-why" rows="2" placeholder="مثلاً: عشان أرضي ربنا، وأسترد تركيزي ورجولتي، وأكون زوج وأب صالح ومشرف..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:border-emerald-600 outline-none text-sm"></textarea>
+                        </div>
+                    </div>
+
+                    <button onclick="submitOnboarding()" class="w-full emerald-gradient hover:opacity-95 text-white font-extrabold py-4 rounded-2xl shadow-xl text-lg flex items-center justify-center gap-3 transition transform active:scale-98">
+                        <span>اعرف نتيجة تشخيصك وابدأ اليوم الأول (1 / 180)</span>
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 2: ACTIVE DASHBOARD (TODAY ONLY VIEW)
+             ========================================== -->
+        <section id="today-view" class="hidden space-y-6">
+
+            <!-- Top Welcome & Strict Day Lock Banner -->
+            <div class="islamic-pattern rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+                <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div class="space-y-2 max-w-2xl">
+                        <div class="inline-flex items-center gap-2 bg-amber-400/20 border border-amber-400/40 text-amber-300 px-3 py-1 rounded-full text-xs font-bold">
+                            <i class="fa-solid fa-lock"></i>
+                            <span>نظام التركيز اليومي: يظهر لك يومك الحالي فقط</span>
+                        </div>
+                        <h2 class="text-2xl sm:text-4xl font-extrabold leading-tight">
+                            أهلاً يا <span id="user-display-name" class="text-amber-400">بطل</span>، إنت النهاردة في <span class="underline decoration-amber-400">اليوم <span id="current-day-number">1</span></span> من 180
+                        </h2>
+                        <p id="current-phase-badge" class="text-emerald-200 text-sm sm:text-base font-medium">
+                            المرحلة الأولى: كسر القيد والديتوكس العصبي
+                        </p>
+                        <div class="pt-2 flex flex-wrap items-center gap-2 text-xs">
+                            <span class="bg-emerald-900/90 border border-emerald-700 px-3 py-1.5 rounded-xl text-emerald-100">
+                                <i class="fa-solid fa-stethoscope text-amber-400 ml-1"></i> تشخيصك: <strong id="user-diagnosis-badge">متوسط</strong>
+                            </span>
+                            <span class="bg-emerald-900/90 border border-emerald-700 px-3 py-1.5 rounded-xl text-emerald-100">
+                                <i class="fa-solid fa-bullseye text-amber-400 ml-1"></i> الجذر الأساسي: <strong id="user-root-badge">الهروب من الضغط</strong>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Circular Progress of 180 Days -->
+                    <div class="bg-emerald-950/70 border border-emerald-700/70 p-4 rounded-2xl flex items-center gap-4 min-w-[240px]">
+                        <div class="w-16 h-16 rounded-2xl gold-gradient flex flex-col items-center justify-center text-emerald-950 font-black shadow-inner">
+                            <span id="days-percent" class="text-lg leading-none">1%</span>
+                            <span class="text-[10px]">مكتمل</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between text-xs mb-1">
+                                <span class="text-emerald-200">رحلة الـ 6 شهور</span>
+                                <span class="font-bold text-amber-400"><span id="days-counter-small">1</span> / 180 يوم</span>
+                            </div>
+                            <div class="w-full h-2.5 bg-emerald-900 rounded-full overflow-hidden">
+                                <div id="overall-progress-bar" class="h-full gold-gradient rounded-full transition-all duration-500" style="width: 1%"></div>
+                            </div>
+                            <p class="text-[11px] text-emerald-300 mt-1.5">لا تفكر في الـ 6 شهور.. انجح النهاردة وبس!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why I Started Reminder Banner -->
+            <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4 flex items-center justify-between gap-4 shadow-sm">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-700 flex items-center justify-center text-lg shrink-0">
+                        <i class="fa-solid fa-quote-right"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-amber-800">عهدك مع الله ومع نفسك (ليه بدأت الرحلة دي؟):</p>
+                        <p id="user-why-display" class="text-sm font-semibold text-slate-800">عشان أرضي ربنا وأسترد تركيزي ونقاء قلبي.</p>
+                    </div>
+                </div>
+                <span class="hidden sm:inline-block text-xs bg-white px-3 py-1 rounded-lg border border-amber-200 text-amber-800 font-bold shrink-0">خليك فاكر هدفك!</span>
+            </div>
+
+            <!-- 3 PILLARS OF TODAY (SPIRITUAL, SCIENCE/PSYCHOLOGY, DAILY COMMAND) -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- 1. Spiritual Message -->
+                <div class="glass-card rounded-3xl p-6 shadow-md border-t-4 border-t-emerald-600 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                                <i class="fa-solid fa-mosque"></i> رسالة الروح والقرآن لليوم <span class="day-num-inline">1</span>
+                            </span>
+                            <i class="fa-solid fa-book-open-reader text-emerald-600/40 text-xl"></i>
+                        </div>
+                        <blockquote id="today-ayah" class="font-amiri text-xl text-emerald-950 font-bold leading-relaxed mb-3 bg-emerald-50/80 p-3.5 rounded-2xl border border-emerald-100">
+                            "قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ"
+                        </blockquote>
+                        <p id="today-spiritual-talk" class="text-sm text-slate-600 leading-relaxed">
+                            Loading...
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-emerald-700 font-bold">
+                        <span><i class="fa-solid fa-sparkles ml-1"></i> ثواب مجاهدتك اليوم:</span>
+                        <span id="today-reward-badge">في ظل عرش الرحمن</span>
+                    </div>
+                </div>
+
+                <!-- 2. Neuroscience & Psychology Insight -->
+                <div class="glass-card rounded-3xl p-6 shadow-md border-t-4 border-t-sky-600 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-sky-100 text-sky-800 text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                                <i class="fa-solid fa-brain"></i> علم النفس والدماغ في اليوم <span class="day-num-inline">1</span>
+                            </span>
+                            <i class="fa-solid fa-microscope text-sky-600/40 text-xl"></i>
+                        </div>
+                        <h3 id="today-psych-title" class="font-extrabold text-base text-slate-800 mb-2">
+                            إيه اللي بيحصل في مخك ونفسيتك النهاردة؟
+                        </h3>
+                        <p id="today-psych-talk" class="text-sm text-slate-600 leading-relaxed">
+                            Loading...
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 bg-sky-50/70 p-2.5 rounded-xl text-xs text-sky-900">
+                        <strong><i class="fa-solid fa-lightbulb text-amber-500 ml-1"></i> قاعدة سيكولوجية:</strong>
+                        <span id="today-psych-rule">الرغبة الملحة عاملة زي الموجة، أقصى مدة ليها 15 دقيقة وبعدين بتتكسر لو مركبتهاش.</span>
+                    </div>
+                </div>
+
+                <!-- 3. Root-Cause Healing Command -->
+                <div class="glass-card rounded-3xl p-6 shadow-md border-t-4 border-t-amber-500 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-1 rounded-full flex items-center gap-1.5">
+                                <i class="fa-solid fa-hammer"></i> أمر البناء الجذري لليوم <span class="day-num-inline">1</span>
+                            </span>
+                            <i class="fa-solid fa-compass-drafting text-amber-500/40 text-xl"></i>
+                        </div>
+                        <h3 id="today-command-title" class="font-extrabold text-base text-slate-800 mb-2">
+                            مهمة اقتلاع الجذور
+                        </h3>
+                        <p id="today-command-desc" class="text-sm text-slate-600 leading-relaxed">
+                            Loading...
+                        </p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs text-amber-800 font-bold">
+                        <i class="fa-solid fa-fire text-amber-500"></i>
+                        <span>التعافي مش إنك "تبطل تشوف"، التعافي إنك تبني حياة مفيهاش مكان للهروب!</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INTERACTIVE DAILY TASKS & ACCOUNTABILITY SECTION -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                
+                <!-- Left 7 Cols: Today's Actionable Checklist -->
+                <div class="lg:col-span-7 glass-card rounded-3xl p-6 sm:p-8 shadow-lg">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-6 border-b border-slate-100 pb-4">
+                        <div>
+                            <h3 class="text-xl font-extrabold text-emerald-950 flex items-center gap-2">
+                                <i class="fa-solid fa-list-check text-emerald-600"></i>
+                                مهام وأوامر اليوم <span class="day-num-inline">1</span> (نفذ وعلم صح)
+                            </h3>
+                            <p class="text-xs text-slate-500 mt-1">كل مهمة بتنجزها بتزود نقاط همتك وبتسرع بناء المسارات العصبية الجديدة في دماغك</p>
+                        </div>
+                        <div class="bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-xl text-xs font-bold text-emerald-800">
+                            أنجزت <span id="tasks-done-count">0</span> من <span id="tasks-total-count">5</span> مهام
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Tasks List -->
+                    <div id="today-tasks-list" class="space-y-3">
+                        <!-- Rendered via JS -->
+                    </div>
+                </div>
+
+                <!-- Right 5 Cols: Daily Journal & Complete/Relapse Actions -->
+                <div class="lg:col-span-5 flex flex-col justify-between gap-6">
+                    
+                    <!-- Daily Reflection Box -->
+                    <div class="glass-card rounded-3xl p-6 shadow-lg flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-lg font-extrabold text-slate-800 mb-1 flex items-center gap-2">
+                                <i class="fa-solid fa-pen-to-square text-amber-500"></i>
+                                سجل محاسبة النفس لليوم <span class="day-num-inline">1</span>
+                            </h3>
+                            <p class="text-xs text-slate-500 mb-4">احكي لنفسك بصراحة: عملت إيه النهاردة؟ إيه المشاعر أو الأفكار اللي هجمت عليك وقاومتها إزاي؟</p>
+                            
+                            <!-- Mood Selector -->
+                            <div class="mb-4">
+                                <label class="block text-xs font-bold text-slate-600 mb-2">حالتك النفسية ومستوى طاقتك النهاردة:</label>
+                                <div class="grid grid-cols-4 gap-2" id="mood-selector">
+                                    <button type="button" onclick="selectMood('قوي ومطمئن')" class="mood-btn border rounded-xl py-2 px-1 text-center text-xs font-bold bg-emerald-50 border-emerald-500 text-emerald-900">
+                                        😊<br>مطمئن
+                                    </button>
+                                    <button type="button" onclick="selectMood('متحمس ومجاهد')" class="mood-btn border rounded-xl py-2 px-1 text-center text-xs font-semibold hover:bg-slate-50">
+                                        💪<br>مجاهد
+                                    </button>
+                                    <button type="button" onclick="selectMood('مضغوط أو قلقان')" class="mood-btn border rounded-xl py-2 px-1 text-center text-xs font-semibold hover:bg-slate-50">
+                                        😰<br>مضغوط
+                                    </button>
+                                    <button type="button" onclick="selectMood('حاسس بملل ووحدة')" class="mood-btn border rounded-xl py-2 px-1 text-center text-xs font-semibold hover:bg-slate-50">
+                                        😔<br>وحدة/ملل
+                                    </button>
+                                </div>
+                            </div>
+
+                            <textarea id="daily-journal-input" oninput="saveJournalDraft()" rows="4" placeholder="اكتب هنا اللي حصل معاك النهاردة... الكتابة بتفرغ الشحنة العاطفية من الدماغ وبتمنع الكبت اللي بيسبب الانتكاسة..." class="w-full p-3.5 rounded-2xl border border-slate-200 focus:border-emerald-600 outline-none text-sm bg-slate-50/70"></textarea>
+                        </div>
+
+                        <!-- Complete Day Or Relapse Buttons -->
+                        <div class="space-y-3 mt-5 pt-4 border-t border-slate-100">
+                            <button onclick="completeCurrentDay()" class="w-full emerald-gradient hover:opacity-95 text-white font-extrabold py-4 px-5 rounded-2xl shadow-lg flex items-center justify-center gap-2 text-base transition transform active:scale-95">
+                                <i class="fa-solid fa-circle-check text-amber-300 text-lg"></i>
+                                <span>أتممت اليوم <span class="day-num-inline">1</span> بفضل الله (افتح اليوم التالي)</span>
+                            </button>
+
+                            <button onclick="openRelapseModal()" class="w-full bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 font-bold py-3 px-4 rounded-2xl text-xs flex items-center justify-center gap-2 transition">
+                                <i class="fa-solid fa-heart-crack"></i>
+                                <span>حصلت زلة أو انتكاسة النهاردة؟ متهربش.. اضغط هنا عشان نقومك فوراً</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Locked Future Days Explanation -->
+            <div class="bg-slate-100 border border-slate-200 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-600">
+                <div class="flex items-center gap-2.5">
+                    <i class="fa-solid fa-shield-cat text-emerald-700 text-xl"></i>
+                    <span><strong>ليه باقي الـ 180 يوم مقفولين ومش ظاهرين؟</strong> لأن علم النفس السلوكي أثبت إن الانشغال بالمستقبل بيسبب التوتر، والتوتر بيهرب للدوبامين. ركز في الـ 24 ساعة اللي في إيدك دلوقتي بس!</span>
+                </div>
+                <span class="font-bold text-emerald-800 shrink-0">اليوم القادم يفتح فور إتمام يومك الحالي</span>
+            </div>
+
+        </section>
+
+        <!-- ==========================================
+             VIEW 3: ROOT CAUSES & CBT CLINIC
+             ========================================== -->
+        <section id="triggers-view" class="hidden space-y-6">
+            <div class="islamic-pattern rounded-3xl p-6 sm:p-8 text-white shadow-lg">
+                <h2 class="text-2xl sm:text-3xl font-extrabold mb-2 flex items-center gap-3">
+                    <i class="fa-solid fa-brain text-amber-400"></i>
+                    عيادة الجذور النفسية والعلاج المعرفي السلوكي (CBT)
+                </h2>
+                <p class="text-emerald-100 text-sm sm:text-base max-w-3xl">
+                    الإباحية عمرها ما كانت هي المشكلة الأصلية.. الإباحية "مسكن مخدر" بتهرب بيه من وجع تاني (ملل، وحدة، خوف من الفشل، غضب، فراغ). هنا بنفكك الفخاخ دي عشان تبطل تحتاج المسكن للأبد.
+                </p>
+            </div>
+
+            <!-- HALT Check Interactive Tool -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-md">
+                <h3 class="text-xl font-extrabold text-emerald-950 mb-2">1. رادار (HALT) لكشف الجذر الخفي للشهوة الفجائية</h3>
+                <p class="text-sm text-slate-600 mb-6">لما تحس برغبة ملحة فجأة، اسأل نفسك: أنا في أنهي حالة من الأربعة دول دلوقتي؟ اضغط على الحالة اللي حاسس بيها وهنديك العلاج الجذري فوراً:</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <button onclick="showHaltSolution('hungry')" class="p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-600 bg-white text-right transition group">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold mb-3 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <h4 class="font-extrabold text-slate-800">محبط أو مضغوط (Stressed)</h4>
+                        <p class="text-xs text-slate-500 mt-1">عندي امتحانات، شغل متراكم، أو حاسس إني فاشل ومتأخر.</p>
+                    </button>
+
+                    <button onclick="showHaltSolution('angry')" class="p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-600 bg-white text-right transition group">
+                        <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-bold mb-3 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-fire-flame-curved"></i>
+                        </div>
+                        <h4 class="font-extrabold text-slate-800">غضبان أو مخنوق (Angry)</h4>
+                        <p class="text-xs text-slate-500 mt-1">حصلت مشكلة في البيت أو مع حد وكابت الغضب والزعل جوايا.</p>
+                    </button>
+
+                    <button onclick="showHaltSolution('lonely')" class="p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-600 bg-white text-right transition group">
+                        <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold mb-3 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-user-Large-slash"></i>
+                        </div>
+                        <h4 class="font-extrabold text-slate-800">وحيد أو في فراغ (Lonely)</h4>
+                        <p class="text-xs text-slate-500 mt-1">قاعد في الأوضة لوحدي، مفيش ونس، وحاسس بجوع عاطفي.</p>
+                    </button>
+
+                    <button onclick="showHaltSolution('tired')" class="p-4 rounded-2xl border-2 border-slate-200 hover:border-emerald-600 bg-white text-right transition group">
+                        <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold mb-3 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-bed"></i>
+                        </div>
+                        <h4 class="font-extrabold text-slate-800">مرهق وسهران (Tired)</h4>
+                        <p class="text-xs text-slate-500 mt-1">الساعة عدت 12 بالليل، جسمي مهدود وبفرهد عالفون عالسرير.</p>
+                    </button>
+                </div>
+
+                <!-- Dynamic HALT Solution Box -->
+                <div id="halt-solution-box" class="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 text-sm text-emerald-950">
+                    <p class="font-bold text-emerald-800 mb-1"><i class="fa-solid fa-hand-pointer ml-1"></i> اختار الشعور اللي فوق عشان يظهرلك التشخيص النفسي والحل العملي الفوري.</p>
+                </div>
+            </div>
+
+            <!-- Cognitive Distortion Reframing (CBT Table) -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-md">
+                <h3 class="text-xl font-extrabold text-emerald-950 mb-2">2. تفكيك أكاذيب الدماغ وقت الشهوة (الرد المعرفي السلوكي)</h3>
+                <p class="text-sm text-slate-600 mb-6">وقت ما الشهوة بتشتغل، الفص الجبهي (مركز العقل والمنطق) بيضعف، ومركز المكافأة بيبدأ يخترع أعذار كذابة. احفظ الردود دي:</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <p class="text-xs font-extrabold text-rose-600 mb-1"><i class="fa-solid fa-xmark ml-1"></i> خدعة شيطان الهوى والدماغ:</p>
+                        <p class="font-bold text-slate-800 mb-3">"أنا هبص بصة سريعة بس من غير ما أعمل حاجة عشان أهدى!"</p>
+                        <p class="text-xs font-extrabold text-emerald-700 mb-1"><i class="fa-solid fa-check ml-1"></i> الحقيقة العلمية والشرعية:</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">البصة الأولى بترفع الدوبامين لضعف مستواه الطبيعي وبتقفل مركز الإرادة في المخ تماماً! مفيش حاجة اسمها بصة وتقف، دي أول زحلقة في البير. اقفل الباب من أول ثانية.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <p class="text-xs font-extrabold text-rose-600 mb-1"><i class="fa-solid fa-xmark ml-1"></i> خدعة شيطان الهوى والدماغ:</p>
+                        <p class="font-bold text-slate-800 mb-3">"دي آخر مرة خلاص، ومن بكرة الصبح هبدأ صفحة جديدة بجد!"</p>
+                        <p class="text-xs font-extrabold text-emerald-700 mb-1"><i class="fa-solid fa-check ml-1"></i> الحقيقة العلمية والشرعية:</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">"بكرة" ده أكبر وهم! اللي هيخليك تقدر تقاوم بكرة هو إنك تقاوم اللحظة دي. كل مرة بتستسلم فيها بتقوي المسار العصبي للإدمان وبتخلي بكرة أصعب مش أسهل.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <p class="text-xs font-extrabold text-rose-600 mb-1"><i class="fa-solid fa-xmark ml-1"></i> خدعة شيطان الهوى والدماغ:</p>
+                        <p class="font-bold text-slate-800 mb-3">"أنا خلاص وقعت في نظرة أو لقطة، يبقى اليوم باظ.. كمل بقى للآخر!"</p>
+                        <p class="text-xs font-extrabold text-emerald-700 mb-1"><i class="fa-solid fa-check ml-1"></i> الحقيقة العلمية والشرعية:</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">ده في علم النفس اسمه (تأثير خرق الامتناع - Chaser Effect). لو شاشة موبايلك اتشرخت شرخ صغير، هتجيب شاكوش وتكسرها خالص؟! لأ طبعاً! فرمل فوراً واستغفر وهتحتفظ بـ 90% من تعافيك.</p>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <p class="text-xs font-extrabold text-rose-600 mb-1"><i class="fa-solid fa-xmark ml-1"></i> خدعة شيطان الهوى والدماغ:</p>
+                        <p class="font-bold text-slate-800 mb-3">"ربنا مش هيقبلك لأنك تبت ١٠٠ مرة ورجعت تاني.. إنت منافق!"</p>
+                        <p class="text-xs font-extrabold text-emerald-700 mb-1"><i class="fa-solid fa-check ml-1"></i> الحقيقة العلمية والشرعية:</p>
+                        <p class="text-xs text-slate-600 leading-relaxed">النبي ﷺ قال في الحديث الصحيح عن العبد اللي أذنب وتاب ثم أذنب وتاب 3 مرات: «اعمل ما شئت فقد غفرت لك» أي ما دمت كلما أذنبت تبت بصدق! المنافق مبيتألمش من ذنبه، وجعك دليل إيمانك.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 4: BRAIN RECOVERY & STATS
+             ========================================== -->
+        <section id="stats-view" class="hidden space-y-6">
+            <!-- Summary Cards -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="glass-card p-5 rounded-3xl shadow-sm border-b-4 border-b-emerald-600">
+                    <p class="text-xs text-slate-500 font-bold">اليوم الحالي في الخطة</p>
+                    <p class="text-3xl font-black text-emerald-900 mt-1"><span id="stat-current-day">1</span> <span class="text-xs font-normal text-slate-500">/ 180</span></p>
+                </div>
+                <div class="glass-card p-5 rounded-3xl shadow-sm border-b-4 border-b-amber-500">
+                    <p class="text-xs text-slate-500 font-bold">إجمالي الأيام المكتملة بنجاح</p>
+                    <p class="text-3xl font-black text-amber-600 mt-1"><span id="stat-total-clean">0</span> <span class="text-xs font-normal text-slate-500">يوم نقي</span></p>
+                </div>
+                <div class="glass-card p-5 rounded-3xl shadow-sm border-b-4 border-b-sky-500">
+                    <p class="text-xs text-slate-500 font-bold">نقاط الهمة والمجاهدة</p>
+                    <p class="text-3xl font-black text-sky-700 mt-1"><span id="stat-points">0</span> <span class="text-xs font-normal text-slate-500">XP</span></p>
+                </div>
+                <div class="glass-card p-5 rounded-3xl shadow-sm border-b-4 border-b-purple-600">
+                    <p class="text-xs text-slate-500 font-bold">عدد مرات النهوض بعد كبوة</p>
+                    <p class="text-3xl font-black text-purple-700 mt-1"><span id="stat-relapses">0</span> <span class="text-xs font-normal text-slate-500">درس مستفاد</span></p>
+                </div>
+            </div>
+
+            <!-- Physiological & Neurological Recovery Bars -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-md">
+                <h3 class="text-xl font-extrabold text-emerald-950 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-heart-pulse text-emerald-600"></i>
+                    مؤشرات التشافي البيولوجي والعصبي لدماغك دلوقتي
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-500 mb-6">بناءً على تقدمك في خطة الـ 180 يوم، دي نسبة التشافي الحقيقية اللي بتحصل في كيمياء مخك وجسمك:</p>
+
+                <div class="space-y-5">
+                    <div>
+                        <div class="flex justify-between text-xs sm:text-sm font-bold mb-1.5">
+                            <span class="text-slate-700">1. حساسية مستقبلات الدوبامين (الاستمتاع بالحاجات الطبيعية البسيطة)</span>
+                            <span id="bio-dopamine-txt" class="text-emerald-700">15%</span>
+                        </div>
+                        <div class="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
+                            <div id="bio-dopamine-bar" class="h-full bg-emerald-600 rounded-full transition-all duration-700" style="width: 15%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs sm:text-sm font-bold mb-1.5">
+                            <span class="text-slate-700">2. قوة القشرة الجبهية (Prefrontal Cortex - قوة الإرادة والتركيز والتحكم)</span>
+                            <span id="bio-pfc-txt" class="text-sky-700">12%</span>
+                        </div>
+                        <div class="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
+                            <div id="bio-pfc-bar" class="h-full bg-sky-600 rounded-full transition-all duration-700" style="width: 12%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs sm:text-sm font-bold mb-1.5">
+                            <span class="text-slate-700">3. انحسار بروتين الإدمان (DeltaFosB) وتلاشي الصور الذهنية القديمة</span>
+                            <span id="bio-delta-txt" class="text-amber-700">10%</span>
+                        </div>
+                        <div class="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
+                            <div id="bio-delta-bar" class="h-full bg-amber-500 rounded-full transition-all duration-700" style="width: 10%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs sm:text-sm font-bold mb-1.5">
+                            <span class="text-slate-700">4. الثقة بالنفس، صفاء العين، والخشوع القلبي</span>
+                            <span id="bio-spirit-txt" class="text-purple-700">20%</span>
+                        </div>
+                        <div class="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
+                            <div id="bio-spirit-bar" class="h-full bg-purple-600 rounded-full transition-all duration-700" style="width: 20%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completed Days History Log (Only Past Days!) -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-md">
+                <h3 class="text-xl font-extrabold text-emerald-950 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-clock-rotate-left text-amber-500"></i>
+                    دفتر إنجازاتك للأيام اللي فاتت
+                </h3>
+                <p class="text-xs text-slate-500 mb-4">هنا تقدر تشوف اللي كتبته وعملته في الأيام اللي خلصتها قبل كده عشان تفتخر بمجهودك:</p>
+                
+                <div id="past-history-container" class="space-y-3 max-h-96 overflow-y-auto pl-2">
+                    <!-- Populated via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             VIEW 5: ISLAMIC & SCIENTIFIC LIBRARY
+             ========================================== -->
+        <section id="library-view" class="hidden space-y-6">
+            <div class="islamic-pattern rounded-3xl p-6 sm:p-8 text-white shadow-lg">
+                <h2 class="text-2xl sm:text-3xl font-extrabold mb-2 flex items-center gap-3">
+                    <i class="fa-solid fa-book-quran text-amber-400"></i>
+                    زاد الطريق: شفاء القلوب وبصيرة العقول
+                </h2>
+                <p class="text-emerald-100 text-sm sm:text-base">
+                    كلمات من نور الوحي، أحاديث نبوية، وفوائد من كلام ابن القيم وعلماء النفس تقوي قلبك وتنور بصيرتك كل ما تحس بفتور.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="glass-card rounded-3xl p-6 shadow-md border-r-4 border-r-emerald-600">
+                    <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">من أسرار ابن القيم في "الداء والدواء"</span>
+                    <h3 class="font-extrabold text-lg text-slate-800 mt-3 mb-2">إزاي النظرة الواحدة بتزرع شجرة الشهوة؟</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        يقول الإمام ابن القيم رحمه الله: "النظرة تولد خطرة (فكرة)، والخطرة تولد شهوة، والشهوة تولد إرادة، ثم تقوى فتصير عزيمة جازمة، فيقع الفعل ولا بد ما لم يمنع مانع.. فالصبر على غض البصر في أول ثانية أيسر بألف مرة من الصبر على ألم ما بعده!"
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card rounded-3xl p-6 shadow-md border-r-4 border-r-amber-500">
+                    <span class="text-xs font-bold text-amber-800 bg-amber-100 px-3 py-1 rounded-full">بشارة نبوية عظيمة</span>
+                    <h3 class="font-extrabold text-lg text-slate-800 mt-3 mb-2">حلاوة الإيمان اللي هتحسها في صدرك فوراً</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        تخيل إن كل مرة بتقفل فيها صفحة أو بتشيح بوشك عن صورة محرمة على الموبايل، ربنا بيعوضك بنور وحلاوة في قلبك في نفس اللحظة! قال تعالى: ﴿إِنَّهُ مَن يَتَّقِ وَيَصْبِرْ فَإِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ﴾. سيدنا يوسف صبر ساعة في فتنة الشهوة فخلده الله ملكاً عزيزاً في الدنيا والآخرة.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card rounded-3xl p-6 shadow-md border-r-4 border-r-sky-600">
+                    <span class="text-xs font-bold text-sky-800 bg-sky-100 px-3 py-1 rounded-full">علم الأعصاب الحديث</span>
+                    <h3 class="font-extrabold text-lg text-slate-800 mt-3 mb-2">ظاهرة الـ Flatline (الخمول المؤقت) متخليهاش تخدعك!</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        ما بين الأسبوع التاني والشهر التاني في التعافي، ممكن تحس بهبوط في المزاج أو فتور عام. اوعى تفتكر إنك كدة تعبت! ده معناه إن مخك بيعمل Reboot (إعادة ضبط مصنع) وبيريح مستقبلات الدوبامين اللي كانت محروقة. اصبر عليها أيام وهتخرج منها بطاقة وحيوية عمرك ما شفتها.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card rounded-3xl p-6 shadow-md border-r-4 border-r-purple-600">
+                    <span class="text-xs font-bold text-purple-800 bg-purple-100 px-3 py-1 rounded-full">فقه التعامل مع الخلوات</span>
+                    <h3 class="font-extrabold text-lg text-slate-800 mt-3 mb-2">سر الآية: ﴿يَعْلَمُ خَائِنَةَ الْأَعْيُنِ وَمَا تُخْفِي الصُّدُورُ﴾</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        لما بتقفل باب أوضتك وتطفي النور، استحضارك إن ربنا مش بس شايفك، ده سبحانه "الستير" اللي سترك عن عيون أهلك وصحابك عشان بيحبك ومستنيك ترجعله.. الحياء من كرم الله وستره أقوى في القلب من مجرد الخوف. قول دايماً: "يا رب لا تجعلني أهون الناظرين إليك".
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==========================================
+         MODAL 1: EMERGENCY SOS CRAVING RESCUE
+         ========================================== -->
+    <div id="sos-modal" class="hidden fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl border-4 border-red-500 text-center space-y-5 my-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 text-red-600 text-3xl animate-bounce">
+                <i class="fa-solid fa-hand"></i>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-black text-slate-900">قف فوراً يا بطل! خد نفس عميق</h3>
+            <p class="text-sm sm:text-base text-slate-600 font-semibold leading-relaxed">
+                اللي إنت حاسس بيه دلوقتي <span class="text-red-600 font-extrabold">مش رغبة حقيقية</span>، دي مجرد خديعة كيميائية في مخك اسمها "موجة الدوبامين الكاذبة" وهتختفي تماماً خلال دقايق لو سبت الفون وقمت من مكانك!
+            </p>
+
+            <!-- Interactive Breathing Exercise -->
+            <div class="bg-emerald-950 text-white p-6 rounded-2xl space-y-3">
+                <p class="text-xs text-amber-300 font-bold">تمرين التنفس العصبي لتهدئة اللوزة الدماغية (اتبع الدائرة):</p>
+                <div class="flex justify-center py-2">
+                    <div id="breathing-circle" class="breathing-circle w-24 h-24 rounded-full bg-emerald-500/30 border-4 border-amber-400 flex items-center justify-center font-extrabold text-sm">
+                        شهيق ببطء...
+                    </div>
+                </div>
+                <p id="sos-timer-display" class="text-2xl font-mono font-bold text-amber-400">03:00</p>
+            </div>
+
+            <!-- Immediate Physical Commands -->
+            <div class="text-right bg-amber-50 border border-amber-200 p-4 rounded-2xl space-y-2 text-xs sm:text-sm">
+                <p class="font-extrabold text-amber-900">نفذ الـ 3 أوامر دول في التو واللحظة:</p>
+                <p class="flex items-center gap-2 text-slate-700"><i class="fa-solid fa-circle-check text-emerald-600"></i> 1. سيب الموبايل أو اللابتوب على المكتب واخرج برة الأوضة فوراً.</p>
+                <p class="flex items-center gap-2 text-slate-700"><i class="fa-solid fa-circle-check text-emerald-600"></i> 2. اغسل وشك ورأسك بمية ساقعة واتوضى دلوقتي.</p>
+                <p class="flex items-center gap-2 text-slate-700"><i class="fa-solid fa-circle-check text-emerald-600"></i> 3. اعمل 15 عدة ضغط (Push-ups) عشان تسحب الدم من مركز الشهوة للعضلات.</p>
+            </div>
+
+            <blockquote class="font-amiri text-lg font-bold text-emerald-900 bg-emerald-50 p-3 rounded-xl">
+                «وَأَمَّا مَنْ خَافَ مَقَامَ رَبِّهِ وَنَهَى النَّفْسَ عَنِ الْهَوَىٰ * فَإِنَّ الْجَنَّةَ هِيَ الْمَأْوَىٰ»
+            </blockquote>
+
+            <button onclick="surviveSOS()" class="w-full emerald-gradient text-white font-extrabold py-4 rounded-2xl shadow-lg text-base hover:opacity-95 transition">
+                الحمد لله! كسرت الموجة وانتصرت على نفسي (+30 نقطة همة)
+            </button>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL 2: COMPASSIONATE RELAPSE RECOVERY
+         ========================================== -->
+    <div id="relapse-modal" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 shadow-2xl space-y-5 my-8">
+            <div class="flex items-center justify-between border-b pb-3">
+                <h3 class="text-xl font-extrabold text-emerald-950 flex items-center gap-2">
+                    <i class="fa-solid fa-hand-holding-heart text-rose-500"></i>
+                    بروتوكول النهوض السريع بعد الكبوة
+                </h3>
+                <button onclick="closeRelapseModal()" class="text-slate-400 hover:text-slate-600 text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="bg-emerald-50 border-r-4 border-emerald-600 p-4 rounded-xl text-sm text-emerald-950 leading-relaxed">
+                <strong>اسمعني كويس يا بطل:</strong> أخطر حاجة بعد الذنب مش الذنب نفسه، أخطر حاجة هي <strong>"اليأس والقنوط"</strong> اللي الشيطان بيزرعه جواك عشان يقولك "إنت مفيش منك فايدة، كمل غرق بقى!". إنت في معركة علاجية، والمقاتل لو وقع على ركبته بيمسح التراب ويكمل، مش بيموت نفسه!
+            </div>
+
+            <div class="space-y-4 text-sm">
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">1. إيه كان نوع الكبوة النهاردة؟</label>
+                    <select id="relapse-type" class="w-full p-3 rounded-xl border border-slate-300 outline-none bg-slate-50 font-semibold">
+                        <option value="slip">زلة بسيطة (تصفح أو نظرات وتوقفت في النص بدون استكمال)</option>
+                        <option value="full">انتكاسة كاملة (وقوع كامل في المشاهدة والعادة)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">2. إيه الثغرة اللي دخل منها الشيطان النهاردة؟ (عشان نقفلها بكرة)</label>
+                    <select id="relapse-trigger" class="w-full p-3 rounded-xl border border-slate-300 outline-none bg-slate-50 font-semibold">
+                        <option value="السهر لوحدي بالموبايل في السرير">السهر لوحدي بالموبايل في السرير</option>
+                        <option value="تصفح السوشيال ميديا والريلز بدون هدف">تصفح السوشيال ميديا والريلز بدون هدف</option>
+                        <option value="الهروب من ضغط مذاكرة أو شغل">الهروب من ضغط مذاكرة أو شغل</option>
+                        <option value="الشعور بالوحدة والحزن والملل">الشعور بالوحدة والحزن والملل</option>
+                    </select>
+                </div>
+
+                <div class="bg-amber-50 p-4 rounded-2xl border border-amber-200 space-y-2">
+                    <p class="font-extrabold text-amber-900 text-xs">علاج الكسرة فوراً (نفذ عشان تقفل باب الشيطان):</p>
+                    <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-700">
+                        <input type="checkbox" id="rel-check-1" class="accent-emerald-600 w-4 h-4">
+                        <span>نويت الاغتسال/الوضوء فوراً وصلاة ركعتين توبة (إن الحسنات يذهبن السيئات).</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-700">
+                        <input type="checkbox" id="rel-check-2" class="accent-emerald-600 w-4 h-4">
+                        <span>مش هقع في فخ الـ Chaser Effect (مش هكرر الغلطة تاني النهاردة بحجة إن اليوم باظ).</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="flex gap-3 pt-2">
+                <button onclick="processRelapseRecovery()" class="flex-1 emerald-gradient text-white font-bold py-3.5 rounded-xl shadow hover:opacity-95 transition">
+                    تبت إلى الله.. ثبت درسي وكمل رحلتي بقوة
+                </button>
+                <button onclick="closeRelapseModal()" class="px-5 py-3.5 rounded-xl bg-slate-100 text-slate-600 font-bold hover:bg-slate-200">
+                    إلغاء
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL 3: CUSTOM CELEBRATION / NOTIFICATION
+         ========================================== -->
+    <div id="toast-modal" class="hidden fixed bottom-5 left-5 z-50 max-w-sm bg-emerald-900 text-white px-5 py-4 rounded-2xl shadow-2xl border border-amber-400 flex items-center gap-3 transition-all">
+        <i class="fa-solid fa-circle-check text-amber-400 text-2xl"></i>
+        <div>
+            <p id="toast-title" class="font-extrabold text-sm text-amber-300">تم الحفظ بنجاح</p>
+            <p id="toast-desc" class="text-xs text-emerald-100">ربنا يثبتك ويقويك يا بطل.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-6 mt-12 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-seedling text-emerald-500"></i>
+                <span class="font-bold text-slate-200">منصة فِطْرَة للتعافي المتكامل</span>
+                <span>— علم النفس السلوكي × منهج التزكية الإسلامي</span>
+            </div>
+            <div class="text-slate-500">
+                معرف الجلسة السحابية لحفظ تقدمك: <span id="footer-uid" class="font-mono text-slate-400">...</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         JAVASCRIPT & FIREBASE CLOUD PERSISTENCE
+         ========================================== -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // --------------------------------------------------
+        // 1. STATE & DEFAULT USER PROFILE
+        // --------------------------------------------------
+        let db = null;
+        let auth = null;
+        let currentUser = null;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'fitrah-recovery-180';
+
+        let userState = {
+            onboarded: false,
+            name: "بطل العفة",
+            whyGoal: "عشان أرضي ربنا، وأسترد تركيزي ونقاء قلبي وأكون إنسان جديد.",
+            severityLevel: "متوسط (احتياج لإعادة برمجة العادات)",
+            rootCause: "الضغط النفسي والتوتر والهروب من المسؤوليات",
+            currentDay: 1,            // Strictly 1 to 180
+            totalCleanDays: 0,
+            points: 50,
+            relapsesCount: 0,
+            currentMood: "قوي ومطمئن",
+            todayCheckedTasks: [],    // Indices of tasks completed today
+            todayJournalDraft: "",
+            historyLog: []            // Array of { day, date, mood, journal, tasksCompleted, status }
+        };
+
+        // --------------------------------------------------
+        // 2. THE 180-DAY CURRICULUM ENGINE (ISLAMIC + CBT + NEUROSCIENCE)
+        // --------------------------------------------------
+        const phasesInfo = [
+            { min: 1, max: 14, name: "المرحلة الأولى (أيام 1 - 14): كسر القيد، تطهير البيئة، وتخطي أعراض الانسحاب الأولى" },
+            { min: 15, max: 45, name: "المرحلة الثانية (أيام 15 - 45): تفكيك الجذور النفسية وإعادة حساسية مستقبلات الدوبامين" },
+            { min: 46, max: 90, name: "المرحلة الثالثة (أيام 46 - 90): الـ Reboot العصبي وبناء العادات البديلة والصحبة" },
+            { min: 91, max: 135, name: "المرحلة الرابعة (أيام 91 - 135): تزكية القلب، ذوق حلاوة الإيمان، وإتقان إدارة الضغوط" },
+            { min: 136, max: 180, name: "المرحلة الخامسة (أيام 136 - 180): رسوخ الهوية الجديدة والاستعداد للعمل والإنجاز" }
+        ];
+
+        const curatedDailyLessons = [
+            {
+                ayah: "﴿قُلْ يَا عِبَادِيَ الَّذِينَ أَسْرَفُوا عَلَىٰ أَنفُسِهِمْ لَا تَقْنَطُوا مِن رَّحْمَةِ اللَّهِ ۚ إِنَّ اللَّهَ يَغْفِرُ الذُّنُوبَ جَمِيعًا﴾",
+                spiritual: "يا صاحبي، أول خطوة في الشفاء الحقيقي إنك تصدق إن ربنا فرحان برجوعك النهاردة أكتر من فرحة التايه في الصحراء لما يلاقي مية! انسى كل اللي فات، النهاردة يوم ميلادك الجديد.",
+                psychTitle: "صدمة الدوبامين الأولى وبداية التحرر",
+                psychTalk: "مخك اتعود ياخد جرعات دوبامين صناعية رخيصة وقت الزعل أو الملل. النهاردة أول يوم نقول للمخ: (لأ، مش هنهرب تاني). طبيعي تحس بشوية قلق بسيط، ده صوت القيد وهو بيتكسر!",
+                psychRule: "قطع المثيرات من الجذور يوفر 80% من طاقة الإرادة.",
+                commandTitle: "عملية التطهير الشامل للبيئة الرقمية",
+                commandDesc: "مفيش متعافي بيشيل المخدر في جيبه! مهمتك الإجبارية النهاردة تمسح أي تطبيق أو حساب أو فولدر أو قناة تليجرام كانت سبب في وقوعك المرات اللي فاتت بلا أي تردد.",
+                reward: "تبديل السيئات إلى حسنات"
+            },
+            {
+                ayah: "﴿قُل لِّلْمُؤْمِنِينَ يَغُضُّوا مِنْ أَبْصَارِهِمْ وَيَحْفَظُوا فُرُوجَهُمْ ۚ ذَٰلِكَ أَزْكَىٰ لَهُمْ﴾",
+                spiritual: "ربنا مقالش احفظوا فروجكم الأول، قال (يغضوا من أبصارهم) لأن العين هي بوابة القلب! غض البصر في أول ثانية على السوشيال ميديا أو في الشارع هو الحصن اللي بيحمي قلبك من الحريقة.",
+                psychTitle: "إزاي الصورة العابرة بتصحّي المسار العصبي القديم؟",
+                psychTalk: "في علم الأعصاب، الـ (Cue) أو المحفز البصري البسيط في ريلز أو تيك توك بيضغط على زرار في الدماغ اسمه اللوزة الدماغية، فيبدأ يفرز شوق قهري. الحل مش إنك تقاوم الشهوة بعد ما تشتعل، الحل تمنع الشرارة الأولى.",
+                psychRule: "النظرة الأولى لك، والنظرة الثانية سهم مسموم في إرادتك.",
+                commandTitle: "قاعدة الـ 3 ثواني مع شاشة الموبايل",
+                commandDesc: "طول اليوم النهاردة، لو ظهر قدامك أي مشهد فيه فتنة ولو بسيط، معاك أقل من ثانية تقلب الشاشة وتعمل (غير مهتم / Not Interested) عشان تدرب خوارزمية دماغك وخوارزمية الفون مع بعض!",
+                reward: "نور وبصيرة في القلب"
+            },
+            {
+                ayah: "﴿إِنَّ الشَّيْطَانَ لَكُمْ عَدُوٌّ فَاتَّخِذُوهُ عَدُوًّا﴾",
+                spiritual: "الشيطان شاطر جداً في إنه يلبسلك ثوب الناصح، ييجي يقولك: (طب افتح بس شوف حاجة عادية تفرج همك). اعرف عدوك ومتقعدش معاه في خلوة وإنت فاضي.",
+                psychTitle: "علاج جذر الهروب العاطفي (Emotional Escape)",
+                psychTalk: "أغلب الشباب مش بيقعوا عشان شهوتهم عالية، بيقعوا لأنهم مش بيعرفوا يتعاملوا مع المشاعر السلبية (زهق، خوف من المستقبل، ضغط مذاكرة). لما تسمي الشعور باسمه الحقيقي، سيطرة الشهوة عليك بتقل للنص!",
+                psychRule: "نحن لا ندمن الإباحية، نحن ندمن الهروب من ألم الواقع.",
+                commandTitle: "قانون ممنوع الموبايل في السرير أو الحمام",
+                commandDesc: "من النهاردة، الموبايل يشحن برة أوضة النوم أو بعيد عن السرير بـ 3 متر على الأقل. السرير للنوم بس مش للتصفح بالليل!",
+                reward: "معية الله وحفظه للمجاهدين"
+            },
+            {
+                ayah: "﴿وَالَّذِينَ جَاهَدُوا فِينَا لَنَهْدِيَنَّهُمْ سُبُلَنَا ۚ وَإِنَّ اللَّهَ لَمَعَ الْمُحْسِنِينَ﴾",
+                spiritual: "وعد رباني قاطع: طول ما إنت بتجاهد وبتعافر، ربنا هيفتحلك أبواب هداية وتيسير ورزق مكنتش تحلم بيها. كل عرق وتعب في مقاومة نفسك مكتوب عند الله بأعلى الدرجات.",
+                psychTitle: "ذروة الدوبامين في اليوم الرابع والخامس",
+                psychTalk: "حوالي اليوم الرابع، هرمون التستوستيرون والدوبامين بيبدأوا يتحركوا في الجسم لأن المخ مستغرب إن الجرعة المعتادة مجتش. لو حسيت بطاقة زيادة النهاردة، ده مؤشر ممتاز إن رجولتك وحيويتك بترجع!",
+                psychRule: "الطاقة الجنسية طاقة حياة وإنجاز لو وجهتها للرياضة والعمل.",
+                commandTitle: "تفريغ الشحنة البدنية بالرياضة",
+                commandDesc: "النهاردة لازم جسمك يعرق! انزل امشي نص ساعة مشي سريع، أو روح الجيم، أو اعمل تمارين ضغط وبطن في البيت لحد ما تحس بضخ الدم في عضلاتك.",
+                reward: "أجر المجاهد في سبيل الله"
+            },
+            {
+                ayah: "﴿أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ﴾",
+                spiritual: "الفراغ اللي جوه صدرك اللي كنت بتحاول تملاه بالحرام، مستحيل يتملي إلا بذكر ربنا والأنس بيه. جرب النهاردة تصلي ركعتين في هدوء وتشتكي لربنا ضعفك زي ما بتحكي لصاحبك.",
+                psychTitle: "بناء السيروتونين والأوكسيتوسين بديل الدوبامين الرخيص",
+                psychTalk: "فيه فرق بين هرمون الإثارة المؤقتة (الدوبامين) وهرمون السعادة والرضا الحقيقي (السيروتونين والأوكسيتوسين). التاني ده بيفرز لما تقعد مع أهلك، تساعد محتاج، تضحك مع صحاب صالحين، أو تخشع في صلاتك.",
+                psychRule: "عكس الإدمان مش مجرد التبطيل.. عكس الإدمان هو التواصل الإنساني والروحي الحقيقي.",
+                commandTitle: "كسر العزلة والتواصل الدافئ",
+                commandDesc: "النهاردة اخرج من قوقعتك: اقعد مع والدتك أو أهلك نص ساعة بدون موبايل، أو كلم صاحب محترم انزلوا اتمشوا سوا.",
+                reward: "طمأنينة وسكينة تنزل على قلبك"
+            },
+            {
+                ayah: "﴿إِنَّ السَّمْعَ وَالْبَصَرَ وَالْفُؤَادَ كُلُّ أُولَٰئِكَ كَانَ عَنْهُ مَسْئُولًا﴾",
+                spiritual: "عينيك وقلبك أمانة غالية عندك. تخيل يوم القيامة لما جوارحك تشهد لك وتقول: يا رب عبدك ده صبر ومنعني عن الحرام عشان بيحبك وبيخاف منك!",
+                psychTitle: "اللدونة العصبية (Neuroplasticity) وتقشير المسارات القديمة",
+                psychTalk: "مخك عامل زي الأرض الزراعية، المسار القديم بتاع الإدمان لما بتمتنع عنه كل يوم بيبدأ ينشف ويضمر، والمسار الجديد بتاع الضبط والتركيز بيبدأ يقوى ويكبر يوم ورا يوم.",
+                psychRule: "كل (لأ) بتقولها لشهوتك النهاردة بتبني عضلة إرادتك لبكرة.",
+                commandTitle: "ساعة إنجاز عميق (Deep Work) بدون مشتتات",
+                commandDesc: "حدد أكتر حاجة كنت بتهرب منها (مذاكرة مادة صعبة، كورس، شغل، قراءة كتاب) واقعد 45 دقيقة كاملة أنجز فيها والموبايل في أوضة تانية.",
+                reward: "بركة في الوقت والعمر"
+            },
+            {
+                ayah: "﴿وَاصْبِرْ نَفْسَكَ مَعَ الَّذِينَ يَدْعُونَ رَبَّهُم بِالْغَدَاةِ وَالْعَشِيِّ يُرِيدُونَ وَجْهَهُ﴾",
+                spiritual: "إتمام أول أسبوع هو انتصار ضخم! النبي ﷺ علمنا إن الذئب بياكل من الغنم القاصية (اللي ماشية لوحدها). خليك دايماً وسط بيئة صالحة ومشجعة.",
+                psychTitle: "مكافأة الدماغ الصحية وإعادة ضبط نظام التحفيز",
+                psychTalk: "إنت كسرت حلقة العادة الأسبوعية! دلوقتي بروتين الإدمان (DeltaFosB) بدأ يتكسر تدريجياً في النواة المتكئة في مخك. احتفل بإنجازك بطريقة حلال تفرح نفسك.",
+                psychRule: "الاحتفال بالإنجازات الصغيرة يثبت السلوك الجديد في اللاوعي.",
+                commandTitle: "تقييم الأسبوع وسد الثغرات",
+                commandDesc: "راجع الأيام اللي فاتت: إيه أكتر وقت حسيت فيه بضعف؟ (بالليل؟ بعد الرجوع من برة؟) حط خطة استباقية للوقت ده عشان الأسبوع الجديد يكون أقوى.",
+                reward: "ثبات القلب على الطاعة"
+            }
+        ];
+
+        // Dynamic generator for any day from 1 to 180
+        function getCurriculumForDay(dayNum) {
+            const phaseObj = phasesInfo.find(p => dayNum >= p.min && dayNum <= p.max) || phasesInfo[0];
+            const templateIndex = (dayNum - 1) % curatedDailyLessons.length;
+            const base = curatedDailyLessons[templateIndex];
+
+            // Dynamic daily tasks tailored to the day number and user's root cause
+            const tasks = [
+                {
+                    id: `d${dayNum}_t1`,
+                    category: "روحي وإيماني",
+                    icon: "fa-mosque text-emerald-600",
+                    title: dayNum % 2 === 1 
+                        ? `أداء الصلوات الخمس في وقتها + دعاء التحصين في السجود: (اللهم طهر قلبي وحصن فرجي)`
+                        : `المحافظة على الصلوات + قراءة صفحة من القرآن بتدبر وربطها بحياتك النهاردة`,
+                    points: 20
+                },
+                {
+                    id: `d${dayNum}_t2`,
+                    category: "حماية البيئة وغض البصر",
+                    icon: "fa-eye-slash text-amber-600",
+                    title: `تطبيق أمر اليوم (${dayNum}): ${base.commandTitle} وعدم إدخال الهاتف للسرير نهائياً`,
+                    points: 25
+                },
+                {
+                    id: `d${dayNum}_t3`,
+                    category: "علاج الجذر النفسي (CBT)",
+                    icon: "fa-brain text-sky-600",
+                    title: `مواجهة جذر (${userState.rootCause.split(' ')[0]}): لما تحس بضغط أو ملل النهاردة، اخرج من الأوضة 10 دقايق بدل الهروب للشاشة`,
+                    points: 20
+                },
+                {
+                    id: `d${dayNum}_t4`,
+                    category: "إعادة بناء الدوبامين الطبيعي",
+                    icon: "fa-dumbbell text-purple-600",
+                    title: dayNum % 3 === 0
+                        ? `نشاط بدني 25 دقيقة (مشي سريع، جيم، أو تمارين منزلية) + دُش فاتر لتجديد النشاط العصبي`
+                        : `إنجاز مهمة عملية أو دراسية لمدة 45 دقيقة بتركيز كامل بعيداً عن الموبايل`,
+                    points: 20
+                },
+                {
+                    id: `d${dayNum}_t5`,
+                    category: "تزكية ومراقبة الذات",
+                    icon: "fa-moon text-indigo-600",
+                    title: `أذكار المساء والوضوء قبل النوم + كتابة سطرين في سجل محاسبة النفس لليوم ${dayNum}`,
+                    points: 15
+                }
+            ];
+
+            return {
+                day: dayNum,
+                phaseName: phaseObj.name,
+                ayah: base.ayah,
+                spiritualTalk: `${base.spiritual} (تذكر يا ${userState.name}: إنت النهاردة في اليوم ${dayNum} من رحلة الـ 180 يوم، وكل يوم بتعديه بيقربك من نسختك النقية اللي ربنا خلقك عليها).`,
+                psychTitle: `${base.psychTitle} (اليوم ${dayNum})`,
+                psychTalk: base.psychTalk,
+                psychRule: base.psychRule,
+                commandTitle: base.commandTitle,
+                commandDesc: base.commandDesc,
+                reward: base.reward,
+                tasks: tasks
+            };
+        }
+
+        // --------------------------------------------------
+        // 3. RANKING & GAMIFICATION SYSTEM
+        // --------------------------------------------------
+        function getUserRank(day, points) {
+            if (day >= 120 || points >= 3000) return { title: "فارس الفطرة النقية", icon: "fa-crown" };
+            if (day >= 60 || points >= 1500)  return { title: "حارس القلب الأمين", icon: "fa-shield-heart" };
+            if (day >= 30 || points >= 800)   return { title: "كاسر القيود", icon: "fa-hand-fist" };
+            if (day >= 14 || points >= 400)   return { title: "بطل الصمود", icon: "fa-fire-flame-curved" };
+            if (day >= 7 || points >= 200)    return { title: "سالك طريق النور", icon: "fa-compass" };
+            return { title: "مجاهد البداية", icon: "fa-shield-halved" };
+        }
+
+        // --------------------------------------------------
+        // 4. FIREBASE INITIALIZATION & AUTO-SAVE
+        // --------------------------------------------------
+        async function initAppAndLoadUser() {
+            try {
+                if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+                    const firebaseConfig = JSON.parse(__firebase_config);
+                    const app = initializeApp(firebaseConfig);
+                    auth = getAuth(app);
+                    db = getFirestore(app);
+
+                    // Rule 3: Auth First
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+
+                    onAuthStateChanged(auth, async (user) => {
+                        if (user) {
+                            currentUser = user;
+                            document.getElementById('footer-uid').innerText = user.uid;
+                            await loadUserDataFromCloud(user.uid);
+                        } else {
+                            finishLoadingAndRender();
+                        }
+                    });
+                } else {
+                    finishLoadingAndRender();
+                }
+            } catch (err) {
+                console.error("Cloud init fallback:", err);
+                finishLoadingAndRender();
+            }
+        }
+
+        async function loadUserDataFromCloud(uid) {
+            if (!db || !uid) {
+                finishLoadingAndRender();
+                return;
+            }
+            try {
+                // Rule 1: Strict Path
+                const profileRef = doc(db, 'artifacts', appId, 'users', uid, 'recoveryData', 'mainProfile');
+                const snap = await getDoc(profileRef);
+                if (snap.exists()) {
+                    const cloudData = snap.data();
+                    userState = { ...userState, ...cloudData };
+                    if (typeof userState.historyLog === 'string') {
+                        userState.historyLog = JSON.parse(userState.historyLog);
+                    }
+                    if (typeof userState.todayCheckedTasks === 'string') {
+                        userState.todayCheckedTasks = JSON.parse(userState.todayCheckedTasks);
+                    }
+                }
+
+                // Listen for real-time updates with error callback
+                onSnapshot(profileRef, (docSnap) => {
+                    if (docSnap.exists()) {
+                        const data = docSnap.data();
+                        userState = {
+                            ...userState,
+                            ...data,
+                            historyLog: typeof data.historyLog === 'string' ? JSON.parse(data.historyLog) : (data.historyLog || []),
+                            todayCheckedTasks: typeof data.todayCheckedTasks === 'string' ? JSON.parse(data.todayCheckedTasks) : (data.todayCheckedTasks || [])
+                        };
+                        renderAllUI();
+                    }
+                }, (error) => {
+                    console.error("Snapshot listener error:", error);
+                });
+
+                finishLoadingAndRender();
+            } catch (e) {
+                console.error("Error loading profile:", e);
+                finishLoadingAndRender();
+            }
+        }
+
+        async function saveStateToCloud(customToastTitle = null, customToastDesc = null) {
+            renderAllUI();
+            if (customToastTitle) {
+                showToast(customToastTitle, customToastDesc || "تم حفظ تقدمك في السحابة تلقائياً.");
+            }
+            if (!db || !currentUser) return;
+            try {
+                const cloudStatus = document.getElementById('cloud-status');
+                if (cloudStatus) {
+                    cloudStatus.innerHTML = `<i class="fa-solid fa-rotate fa-spin text-amber-400"></i> جاري الحفظ...`;
+                }
+                const profileRef = doc(db, 'artifacts', appId, 'users', currentUser.uid, 'recoveryData', 'mainProfile');
+                const payload = {
+                    ...userState,
+                    historyLog: JSON.stringify(userState.historyLog || []),
+                    todayCheckedTasks: JSON.stringify(userState.todayCheckedTasks || []),
+                    updatedAt: Date.now()
+                };
+                await setDoc(profileRef, payload);
+                if (cloudStatus) {
+                    cloudStatus.innerHTML = `<i class="fa-solid fa-cloud-check text-emerald-400"></i> محفوظ تلقائياً`;
+                }
+            } catch (e) {
+                console.error("Error saving state:", e);
+            }
+        }
+
+        function finishLoadingAndRender() {
+            const loader = document.getElementById('loading-screen');
+            loader.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => loader.classList.add('hidden'), 500);
+            renderAllUI();
+        }
+
+        // --------------------------------------------------
+        // 5. UI RENDERING & STRICT DAY-BY-DAY LOGIC
+        // --------------------------------------------------
+        function renderAllUI() {
+            const header = document.getElementById('main-header');
+            const onboardingView = document.getElementById('onboarding-view');
+            const todayView = document.getElementById('today-view');
+
+            if (!userState.onboarded) {
+                header.classList.add('hidden');
+                onboardingView.classList.remove('hidden');
+                todayView.classList.add('hidden');
+                return;
+            }
+
+            // Show Main App
+            header.classList.remove('hidden');
+            onboardingView.classList.add('hidden');
+
+            // Ensure default active view is visible if none active
+            const allViews = ['today-view', 'triggers-view', 'stats-view', 'library-view'];
+            const isAnyVisible = allViews.some(id => !document.getElementById(id).classList.contains('hidden'));
+            if (!isAnyVisible) {
+                document.getElementById('today-view').classList.remove('hidden');
+            }
+
+            // Update Header Stats
+            const rank = getUserRank(userState.currentDay, userState.points);
+            document.getElementById('header-rank-title').innerText = rank.title;
+            document.getElementById('header-rank-icon').className = `fa-solid ${rank.icon} text-amber-400 text-lg`;
+            document.getElementById('header-points').innerText = `${userState.points} نقطة`;
+
+            // Update Today View (STRICTLY ONLY CURRENT DAY)
+            const dayData = getCurriculumForDay(userState.currentDay);
+            document.getElementById('user-display-name').innerText = userState.name;
+            document.getElementById('current-day-number').innerText = userState.currentDay;
+            document.getElementById('current-phase-badge').innerText = dayData.phaseName;
+            document.getElementById('user-diagnosis-badge').innerText = userState.severityLevel;
+            document.getElementById('user-root-badge').innerText = userState.rootCause;
+            document.getElementById('user-why-display').innerText = userState.whyGoal;
+
+            // Update inline day numbers
+            document.querySelectorAll('.day-num-inline').forEach(el => {
+                el.innerText = userState.currentDay;
+            });
+
+            // 180-Day Progress
+            const pct = Math.min(100, Math.max(1, Math.round((userState.currentDay / 180) * 100)));
+            document.getElementById('days-percent').innerText = `${pct}%`;
+            document.getElementById('days-counter-small').innerText = userState.currentDay;
+            document.getElementById('overall-progress-bar').style.width = `${pct}%`;
+
+            // Daily Cards Content
+            document.getElementById('today-ayah').innerText = dayData.ayah;
+            document.getElementById('today-spiritual-talk').innerText = dayData.spiritualTalk;
+            document.getElementById('today-reward-badge').innerText = dayData.reward;
+            document.getElementById('today-psych-title').innerText = dayData.psychTitle;
+            document.getElementById('today-psych-talk').innerText = dayData.psychTalk;
+            document.getElementById('today-psych-rule').innerText = dayData.psychRule;
+            document.getElementById('today-command-title').innerText = dayData.commandTitle;
+            document.getElementById('today-command-desc').innerText = dayData.commandDesc;
+
+            // Render Today's Interactive Tasks
+            const tasksContainer = document.getElementById('today-tasks-list');
+            tasksContainer.innerHTML = '';
+            let doneCount = 0;
+
+            dayData.tasks.forEach((task, idx) => {
+                const isChecked = (userState.todayCheckedTasks || []).includes(idx);
+                if (isChecked) doneCount++;
+
+                const taskDiv = document.createElement('div');
+                taskDiv.onClick = () => window.toggleDailyTask(idx, task.points);
+                taskDiv.className = `cursor-pointer p-4 rounded-2xl border-2 transition flex items-start justify-between gap-3 ${
+                    isChecked 
+                        ? 'bg-emerald-50/90 border-emerald-500 text-emerald-950 shadow-sm' 
+                        : 'bg-white hover:bg-slate-50 border-slate-200 text-slate-800'
+                }`;
+                taskDiv.innerHTML = `
+                    <div class="flex items-start gap-3.5" onclick="window.toggleDailyTask(${idx}, ${task.points})">
+                        <div class="mt-0.5 w-6 h-6 rounded-lg flex items-center justify-center border-2 transition shrink-0 ${
+                            isChecked ? 'bg-emerald-600 border-emerald-600 text-white' : 'border-slate-300 bg-white'
+                        }">
+                            ${isChecked ? '<i class="fa-solid fa-check text-xs"></i>' : ''}
+                        </div>
+                        <div>
+                            <span class="text-[11px] font-bold text-slate-500 flex items-center gap-1.5 mb-0.5">
+                                <i class="fa-solid ${task.icon}"></i> ${task.category}
+                            </span>
+                            <p class="text-sm font-bold leading-snug ${isChecked ? 'line-through text-emerald-800/80' : 'text-slate-800'}">
+                                ${task.title}
+                            </p>
+                        </div>
+                    </div>
+                    <span class="shrink-0 text-[11px] font-extrabold px-2.5 py-1 rounded-lg ${
+                        isChecked ? 'bg-emerald-200 text-emerald-900' : 'bg-amber-100 text-amber-800'
+                    }">
+                        +${task.points} XP
+                    </span>
+                `;
+                tasksContainer.appendChild(taskDiv);
+            });
+
+            document.getElementById('tasks-done-count').innerText = doneCount;
+            document.getElementById('tasks-total-count').innerText = dayData.tasks.length;
+
+            // Journal Draft
+            const journalEl = document.getElementById('daily-journal-input');
+            if (document.activeElement !== journalEl) {
+                journalEl.value = userState.todayJournalDraft || "";
+            }
+
+            // Update Stats View
+            document.getElementById('stat-current-day').innerText = userState.currentDay;
+            document.getElementById('stat-total-clean').innerText = userState.totalCleanDays;
+            document.getElementById('stat-points').innerText = userState.points;
+            document.getElementById('stat-relapses').innerText = userState.relapsesCount;
+
+            // Biological Recovery Progress Calculation
+            const d = userState.currentDay;
+            const bioDopamine = Math.min(100, Math.round(12 + (d / 90) * 88));
+            const bioPfc = Math.min(100, Math.round(10 + (d / 120) * 90));
+            const bioDelta = Math.min(100, Math.round(8 + (d / 60) * 92));
+            const bioSpirit = Math.min(100, Math.round(18 + (d / 45) * 82));
+
+            document.getElementById('bio-dopamine-txt').innerText = `${bioDopamine}%`;
+            document.getElementById('bio-dopamine-bar').style.width = `${bioDopamine}%`;
+            document.getElementById('bio-pfc-txt').innerText = `${bioPfc}%`;
+            document.getElementById('bio-pfc-bar').style.width = `${bioPfc}%`;
+            document.getElementById('bio-delta-txt').innerText = `${bioDelta}%`;
+            document.getElementById('bio-delta-bar').style.width = `${bioDelta}%`;
+            document.getElementById('bio-spirit-txt').innerText = `${bioSpirit}%`;
+            document.getElementById('bio-spirit-bar').style.width = `${bioSpirit}%`;
+
+            // Render Past Days History
+            renderPastHistory();
+        }
+
+        function renderPastHistory() {
+            const container = document.getElementById('past-history-container');
+            const logs = userState.historyLog || [];
+            if (logs.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-slate-400 text-sm">
+                        <i class="fa-solid fa-book-open text-2xl mb-2 block"></i>
+                        لم تكمل يومك الأول بعد.. أتمم مهام النهاردة واضغط (أتممت اليوم) ليظهر سجلك هنا!
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = '';
+            [...logs].reverse().forEach(item => {
+                const badgeClass = item.status === 'clean' 
+                    ? 'bg-emerald-100 text-emerald-800 border-emerald-300' 
+                    : 'bg-amber-100 text-amber-900 border-amber-300';
+                const badgeLabel = item.status === 'clean' ? 'يوم انتصار ونقاء' : 'درس وتوبة صادقة';
+
+                const div = document.createElement('div');
+                div.className = "p-4 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3";
+                div.innerHTML = `
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span class="font-extrabold text-emerald-950 text-sm">اليوم ${item.day}</span>
+                            <span class="text-[11px] px-2.5 py-0.5 rounded-full border font-bold ${badgeClass}">${badgeLabel}</span>
+                            <span class="text-xs text-slate-400">${item.date || ''}</span>
+                        </div>
+                        <p class="text-xs text-slate-600">${item.journal ? item.journal : 'تم إنجاز اليوم بنجاح بفضل الله.'}</p>
+                    </div>
+                    <div class="text-xs font-bold text-slate-500 shrink-0">
+                        الحالة: <span class="text-slate-800">${item.mood || 'مطمئن'}</span> | المهام: ${item.tasksCompleted || 0}/5
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // --------------------------------------------------
+        // 6. USER INTERACTIONS & EVENT HANDLERS
+        // --------------------------------------------------
+        window.submitOnboarding = async function() {
+            const nameInput = document.getElementById('ob-name').value.trim();
+            const whyInput = document.getElementById('ob-why').value.trim();
+            const q1 = parseInt(document.querySelector('input[name="q1"]:checked')?.value || "2");
+            const q2El = document.querySelector('input[name="q2_root"]:checked');
+            const q2Score = parseInt(q2El?.getAttribute('data-score') || "2");
+            const rootCauseText = q2El?.value || "الضغط النفسي والتوتر";
+            const q3 = parseInt(document.querySelector('input[name="q3"]:checked')?.value || "2");
+            const q4 = parseInt(document.querySelector('input[name="q4"]:checked')?.value || "2");
+
+            const totalScore = q1 + q2Score + q3 + q4;
+            let severity = "تعلق بسيط (وقاية وتحصين سلوكي)";
+            if (totalScore >= 9) {
+                severity = "تعلق قهري عالي (خطة ديتوكس عصبي وإيماني مكثفة)";
+            } else if (totalScore >= 6) {
+                severity = "تعلق متوسط (إعادة برمجة الدوبامين والعادات)";
+            }
+
+            userState.onboarded = true;
+            userState.name = nameInput || "بطل الفطرة";
+            userState.whyGoal = whyInput || "عشان أرضي ربنا وأسترد تركيزي ونقاء قلبي وأكون إنسان جديد.";
+            userState.severityLevel = severity;
+            userState.rootCause = rootCauseText;
+            userState.currentDay = 1;
+            userState.points = 100; // Welcome bonus
+
+            await saveStateToCloud("أهلاً بيك في رحلة الـ 180 يوم!", "تم حفظ خطتك التشخيصية، ابدأ مهام اليوم الأول بسم الله.");
+        };
+
+        window.toggleDailyTask = async function(taskIndex, taskPoints) {
+            if (!Array.isArray(userState.todayCheckedTasks)) {
+                userState.todayCheckedTasks = [];
+            }
+            const pos = userState.todayCheckedTasks.indexOf(taskIndex);
+            if (pos === -1) {
+                userState.todayCheckedTasks.push(taskIndex);
+                userState.points += taskPoints;
+                await saveStateToCloud(`عاش يا ${userState.name}! +${taskPoints} نقطة همة`, "استمر في إتمام باقي مهام يومك الحالي.");
+            } else {
+                userState.todayCheckedTasks.splice(pos, 1);
+                userState.points = Math.max(0, userState.points - taskPoints);
+                await saveStateToCloud();
+            }
+        };
+
+        window.selectMood = function(moodText) {
+            userState.currentMood = moodText;
+            document.querySelectorAll('.mood-btn').forEach(btn => {
+                if (btn.innerText.includes(moodText.split(' ')[0])) {
+                    btn.className = "mood-btn border rounded-xl py-2 px-1 text-center text-xs font-bold bg-emerald-50 border-emerald-500 text-emerald-900";
+                } else {
+                    btn.className = "mood-btn border rounded-xl py-2 px-1 text-center text-xs font-semibold hover:bg-slate-50";
+                }
+            });
+            saveStateToCloud();
+        };
+
+        let journalTimeout = null;
+        window.saveJournalDraft = function() {
+            const val = document.getElementById('daily-journal-input').value;
+            userState.todayJournalDraft = val;
+            clearTimeout(journalTimeout);
+            journalTimeout = setTimeout(() => {
+                saveStateToCloud();
+            }, 900);
+        };
+
+        window.completeCurrentDay = async function() {
+            const completedTasksCount = (userState.todayCheckedTasks || []).length;
+            if (completedTasksCount < 2) {
+                showToast("أنجز مهمتين على الأقل الأول يا بطل!", "علم صح على المهام اللي نفذتها النهاردة قبل ما تقفل اليوم.");
+                return;
+            }
+
+            const finishedDay = userState.currentDay;
+            const todayDateStr = new Date().toLocaleDateString('ar-EG', { month: 'short', day: 'numeric' });
+
+            userState.historyLog.push({
+                day: finishedDay,
+                date: todayDateStr,
+                mood: userState.currentMood,
+                journal: userState.todayJournalDraft || "الحمد لله الذي بنعمته تتم الصالحات، أتممت اليوم بنجاح.",
+                tasksCompleted: completedTasksCount,
+                status: 'clean'
+            });
+
+            userState.totalCleanDays += 1;
+            userState.points += 50; // Daily completion bonus
+            if (userState.currentDay < 180) {
+                userState.currentDay += 1;
+            }
+            userState.todayCheckedTasks = [];
+            userState.todayJournalDraft = "";
+            document.getElementById('daily-journal-input').value = "";
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            await saveStateToCloud(
+                `الله أكبر! أتممت اليوم ${finishedDay} بنجاح 🎉`,
+                `اتفتحلك دلوقتي اليوم ${userState.currentDay} من الـ 180 يوم، وزادت نقاط همتك +50 نقطة!`
+            );
+        };
+
+        // --------------------------------------------------
+        // 7. RELAPSE COMPASSIONATE RECOVERY PROTOCOL
+        // --------------------------------------------------
+        window.openRelapseModal = function() {
+            document.getElementById('relapse-modal').classList.remove('hidden');
+        };
+
+        window.closeRelapseModal = function() {
+            document.getElementById('relapse-modal').classList.add('hidden');
+        };
+
+        window.processRelapseRecovery = async function() {
+            const rType = document.getElementById('relapse-type').value;
+            const rTrigger = document.getElementById('relapse-trigger').value;
+            const todayDateStr = new Date().toLocaleDateString('ar-EG', { month: 'short', day: 'numeric' });
+
+            userState.relapsesCount += 1;
+            userState.rootCause = rTrigger; // Update root cause radar to focus on this trigger!
+
+            userState.historyLog.push({
+                day: userState.currentDay,
+                date: todayDateStr,
+                mood: "توبة ونهوض من جديد",
+                journal: `حصلت كبوة بسبب (${rTrigger})، لكني تبت لله فوراً ومستمر في معركتي ومش هستسلم.`,
+                tasksCompleted: (userState.todayCheckedTasks || []).length,
+                status: 'relapse_lesson'
+            });
+
+            if (rType === 'full') {
+                // Step back gently without erasing total clean days or points!
+                userState.currentDay = Math.max(1, userState.currentDay - 2);
+            }
+            userState.todayCheckedTasks = [];
+            userState.todayJournalDraft = "";
+
+            closeRelapseModal();
+            await saveStateToCloud(
+                "تقبل الله توبتك.. قم ولا تيأس أبداً!",
+                `تم تحديث رادار الجذور للتركيز على علاج ثغرة (${rTrigger}). كل خبراتك ونقاطك محفوظة!`
+            );
+        };
+
+        // --------------------------------------------------
+        // 8. EMERGENCY SOS MODAL & BREATHING TIMER
+        // --------------------------------------------------
+        let sosInterval = null;
+        let breathingInterval = null;
+
+        window.openSOSModal = function() {
+            document.getElementById('sos-modal').classList.remove('hidden');
+            let secondsLeft = 180;
+            const timerEl = document.getElementById('sos-timer-display');
+            const circleEl = document.getElementById('breathing-circle');
+
+            clearInterval(sosInterval);
+            clearInterval(breathingInterval);
+
+            sosInterval = setInterval(() => {
+                secondsLeft--;
+                if (secondsLeft <= 0) {
+                    clearInterval(sosInterval);
+                    timerEl.innerText = "00:00 - انتهت الموجة!";
+                } else {
+                    const m = String(Math.floor(secondsLeft / 60)).padStart(2, '0');
+                    const s = String(secondsLeft % 60).padStart(2, '0');
+                    timerEl.innerText = `${m}:${s}`;
+                }
+            }, 1000);
+
+            let phase = 0;
+            const runBreath = () => {
+                if (phase === 0) {
+                    circleEl.innerText = "شهيق عميق (4ث)";
+                    circleEl.style.transform = "scale(1.25)";
+                    phase = 1;
+                } else if (phase === 1) {
+                    circleEl.innerText = "اكتم النفس (4ث)";
+                    phase = 2;
+                } else {
+                    circleEl.innerText = "زفير ببطء (4ث)";
+                    circleEl.style.transform = "scale(0.9)";
+                    phase = 0;
+                }
+            };
+            runBreath();
+            breathingInterval = setInterval(runBreath, 4000);
+        };
+
+        window.surviveSOS = async function() {
+            clearInterval(sosInterval);
+            clearInterval(breathingInterval);
+            document.getElementById('sos-modal').classList.add('hidden');
+            userState.points += 30;
+            await saveStateToCloud("بطل والله! انتصرت في أصعب لحظة 💪", "تم إضافة +30 نقطة همة لرصيدك لكسر موجة الشهوة.");
+        };
+
+        // --------------------------------------------------
+        // 9. HALT CLINIC & TABS NAVIGATION
+        // --------------------------------------------------
+        window.showHaltSolution = function(type) {
+            const box = document.getElementById('halt-solution-box');
+            const solutions = {
+                hungry: {
+                    title: "تشخيص حالة الضغط والإحباط (Stressed / Overwhelmed):",
+                    desc: "مخك دلوقتي شايف التاسكات أو المذاكرة جبل كبير، فبيدور على (مخدر سريع) ينسيه الهم لمدة 10 دقايق. الحل الجذري: قسم الشغل اللي وراك لـ 15 دقيقة بس (Pomodoro)، قوم اشرب كوباية مية أو مشروب دافي، واستعيذ بالله من العجز والكسل. أول ما تبدأ في الشغل 5 دقايق الشهوة هتختفي لأنها كانت مجرد هروب!"
+                },
+                angry: {
+                    title: "تشخيص حالة الغضب والخنقة المكتومة (Angry):",
+                    desc: "الغضب المكتوم بيرفع الكورتيزول والأدرينالين في الدم، فالجسم بيطلب تفريغ عنيف وسريع! الحل الجذري والنبوي: لو واقف اقعد، اتوضى بمية باردة فوراً، واكتب في ورقة كل اللي مضايقك أو العب ضغط لحد ما تتعب. اوعى تعاقب نفسك بذنب عشان حد تاني زعلك!"
+                },
+                lonely: {
+                    title: "تشخيص حالة الوحدة والفراغ العاطفي (Lonely):",
+                    desc: "قعدتك لوحدك في أوضة مقفولة هي البيئة رقم 1 للانتكاسة. إنت مش جعان شهوة، إنت جعان (ونس وأمان). الحل الجذري: افتح باب الأوضة فوراً، اطلع اقعد في الصالة مع أهلك، أو انزل اتمشى في شارع حيوي أو روح المسجد قبل الصلاة بربع ساعة."
+                },
+                tired: {
+                    title: "تشخيص حالة الإرهاق والسهر بالليل (Tired):",
+                    desc: "بعد الساعة 11 بالليل، القشرة الجبهية المسؤولة عن الإرادة بتكون طاقتها 10% بس! مسكتك للموبايل وإنت نعسان هي انتحار للإرادة. الحل الجذري: حط الموبايل على الشاحن برة الأوضة، انفض فراشك، نام على جنبك اليمين بوضوء وقول أذكار النوم، وهتصحى الصبح فخور جداً بنفسك."
+                }
+            };
+            const item = solutions[type];
+            box.innerHTML = `
+                <h4 class="font-extrabold text-emerald-900 text-base mb-1">${item.title}</h4>
+                <p class="text-slate-700 leading-relaxed">${item.desc}</p>
+            `;
+        };
+
+        window.switchTab = function(tabName) {
+            const views = ['today', 'triggers', 'stats', 'library'];
+            views.forEach(v => {
+                const section = document.getElementById(`${v}-view`);
+                const btn = document.getElementById(`tab-btn-${v}`);
+                if (v === tabName) {
+                    section.classList.remove('hidden');
+                    btn.className = "tab-btn active-tab px-4 py-2 rounded-xl font-bold flex items-center gap-2 whitespace-nowrap transition bg-amber-500 text-emerald-950 shadow";
+                } else {
+                    section.classList.add('hidden');
+                    btn.className = "tab-btn px-4 py-2 rounded-xl font-semibold flex items-center gap-2 whitespace-nowrap text-emerald-100 hover:bg-emerald-800/50 transition";
+                }
+            });
+        };
+
+        function showToast(title, desc) {
+            const toast = document.getElementById('toast-modal');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-desc').innerText = desc;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+
+        // Start App
+        window.addEventListener('DOMContentLoaded', initAppAndLoadUser);
+    </script>
+</body>
+</html>
